@@ -1,10 +1,10 @@
 <header>
-  <h1>Dear Diary</h1>
+  <h1><a href="/">Dear Diary</a></h1>
   <div class="icons">
     <span class="add-diary">
-      <i class="bi bi-journal-plus" />
+      <a href="/newDiary"> <i class="bi bi-journal-plus" /></a>
     </span>
-    <span>
+    <span class="cursor-pointer">
       <i class="bi bi-door-open" />
     </span>
   </div>
