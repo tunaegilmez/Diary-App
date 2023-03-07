@@ -1,11 +1,17 @@
 <header>
   <h1><a href="/">Dear Diary</a></h1>
-  <div class="icons">
+  <div class="icons nav">
     <span class="add-diary">
-      <a href="/newDiary"> <i class="bi bi-journal-plus" /></a>
+      <a href="/newDiary">
+        <i
+          class="bi bi-journal-plus p-3 border-b-2 border-red-800 border-opacity-0 hover:border-opacity-100 hover:text-red-800 duration-200"
+        /></a
+      >
     </span>
     <span class="cursor-pointer">
-      <i class="bi bi-door-open" />
+      <i
+        class="bi bi-door-open p-3 border-b-2 border-red-800 border-opacity-0 hover:border-opacity-100 hover:text-red-800 duration-200"
+      />
     </span>
   </div>
 </header>

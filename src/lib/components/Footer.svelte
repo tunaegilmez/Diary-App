@@ -11,7 +11,7 @@
 
 <style>
   footer {
-    margin-top: 25%;
+    margin-top: 10%;
     padding: 40px;
     text-align: center;
     font-family: sans-serif;

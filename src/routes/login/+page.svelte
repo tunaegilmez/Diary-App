@@ -2,14 +2,16 @@
 </script>
 
 <main>
-  <h1>Login</h1>
+  <h1 class="p-3 border-b-2 border-black border-opacity-100 duration-200">
+    LOGIN
+  </h1>
   <div
     class="login-card flex flex-col gap-y-4 rounded-xl border border-slate-500"
   >
     <div>
       <h3 class="mt-[50px] ml-12 mb-5 text-xl flex justify-start">User Name</h3>
       <input
-        class="text-xl p-2 border border-slate-500"
+        class="text-xl p-2 border rounded-md  border-slate-500 "
         type="text"
         placeholder="User Name"
       />
@@ -19,13 +21,14 @@
         User Password
       </h3>
       <input
-        class="text-xl p-2 border border-slate-500 "
+        class="text-xl p-2 border rounded-md border-slate-500 focus:blur-sm "
+        type="password"
         placeholder="Password"
       />
     </div>
     <div>
       <button
-        class="self-end p-2 hover:bg-gray-300 bg-gray-400 rounded-md mb-[20px] mt-[50px]"
+        class="self-end p-2 pr-5 pl-5 hover:bg-gray-300 bg-gray-400 rounded-md mb-[20px] mt-[50px]"
         >Login</button
       >
     </div>

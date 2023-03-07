@@ -34,4 +34,7 @@
     font-size: 30px;
     margin-bottom: 15px;
   }
+  textarea {
+    height: 550px;
+  }
 </style>
