@@ -13,6 +13,7 @@
 <style>
   header {
     background: #f7f7f7;
+    margin: 8px;
     padding: 20px;
     display: flex;
     justify-content: space-between;
