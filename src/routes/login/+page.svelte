@@ -37,6 +37,18 @@
       <button
         class="self-end p-2 pr-5 pl-5 hover:bg-gray-300 bg-gray-400 rounded-md mb-[20px] mt-[50px]"
         on:click={() => {
+          let isSameUser = $users.filter(user => user?.name === userName);
+
+          if (
+            isSameUser &&
+            isSameUser.length > 0 &&
+            isSameUser[0].password !== userPassword
+          ) {
+            alert("wrong password");
+            userPassword = undefined;
+            return;
+          }
+
           users.set([
             {
               name: userName,
