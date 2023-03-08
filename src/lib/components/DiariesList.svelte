@@ -1,27 +1,33 @@
 <script>
   import Card from "../shared/Card.svelte";
+
+  import { diaries } from "../services/store";
 </script>
 
 <div
   class="diary-list flex flex-col grid gap-10 xl:grid-cols-2 grid-cols-1 relative"
 >
-  {#each { length: 3 } as _, i}
-    <Card>
-      <div>
-        <div class="flex justify-between mb-3">
-          <h1 class="text-center text-2xl text-red-800">Diary Title</h1>
-          <li class="first-line:text-gray-400">0{i + 1}.01.2023</li>
-        </div>
+  {#if $diaries && $diaries.length > 0}
+    {#each $diaries as diary}
+      <Card>
         <div>
-          <p
-            class="first-letter:text-2xl first-letter:mr-[1px] first-letter:text-gray-700"
-          >
-            Diary content...
-          </p>
+          <div class="flex justify-between mb-3">
+            <h1 class="text-center text-2xl text-red-800">{diary.title}</h1>
+            <li class="first-line:text-gray-400">01.01.2023</li>
+          </div>
+          <div>
+            <p
+              class="first-letter:text-2xl first-letter:mr-[1px] first-letter:text-gray-700"
+            >
+              {diary.content}
+            </p>
+          </div>
         </div>
-      </div>
-    </Card>
-  {/each}
+      </Card>
+    {/each}
+  {:else}
+    <h1 class="text-xl text-gray-500">We Dont Find Any Diary...</h1>
+  {/if}
 </div>
 
 <style>

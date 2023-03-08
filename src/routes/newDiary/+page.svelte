@@ -1,4 +1,9 @@
 <script>
+  import { diaries } from "../../lib/services/store";
+  import { goto } from "$app/navigation";
+
+  let diaryTitle;
+  let diaryContent;
 </script>
 
 <main>
@@ -8,15 +13,37 @@
       class="title w-full p-2 capitalize text-2xl border border-slate-500"
       type="text"
       placeholder="Diary title"
+      bind:value={diaryTitle}
     />
     <div>
       <textarea
         class="w-full min-h-[20rem] text-lg p-2 border border-slate-500"
         placeholder="Diary content..."
+        bind:value={diaryContent}
       />
     </div>
 
-    <button class="self-end p-2 bg-gray-400 rounded-md">Save Diary</button>
+    <button
+      class="self-end p-2 bg-gray-400 rounded-md"
+      on:click={() => {
+        if (diaryTitle === undefined || diaryContent === undefined) {
+          alert("Fill in the required fields");
+          return;
+        }
+
+        diaries.set([
+          {
+            id: new Date().getTime(),
+            title: diaryTitle,
+            content: diaryContent,
+          },
+          ...$diaries,
+        ]);
+        goto("/");
+        diaryTitle = undefined;
+        diaryContent = undefined;
+      }}>Save Diary</button
+    >
   </div>
 </main>
 
