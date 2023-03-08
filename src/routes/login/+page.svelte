@@ -1,4 +1,9 @@
 <script>
+  import { users, activeUser } from "../../lib/services/store";
+  import { goto } from "$app/navigation";
+
+  let userName;
+  let userPassword;
 </script>
 
 <main>
@@ -13,6 +18,7 @@
       <input
         class="text-xl p-2 border rounded-md  border-slate-500 "
         type="text"
+        bind:value={userName}
         placeholder="User Name"
       />
     </div>
@@ -23,13 +29,24 @@
       <input
         class="text-xl p-2 border rounded-md border-slate-500 focus:blur-sm "
         type="password"
+        bind:value={userPassword}
         placeholder="Password"
       />
     </div>
     <div>
       <button
         class="self-end p-2 pr-5 pl-5 hover:bg-gray-300 bg-gray-400 rounded-md mb-[20px] mt-[50px]"
-        >Login</button
+        on:click={() => {
+          users.set([
+            {
+              name: userName,
+              password: userPassword,
+            },
+            ...$users,
+          ]);
+          activeUser.set($users[0].name);
+          goto("/");
+        }}>Login</button
       >
     </div>
     <a class="mb-[50px] hover:text-red-800" href="/forgetPassword"

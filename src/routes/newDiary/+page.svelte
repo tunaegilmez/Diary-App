@@ -1,5 +1,5 @@
 <script>
-  import { diaries } from "../../lib/services/store";
+  import { diaries, activeUser } from "../../lib/services/store";
   import { goto } from "$app/navigation";
 
   let diaryTitle;
@@ -34,6 +34,7 @@
         diaries.set([
           {
             id: new Date().getTime(),
+            owner: $activeUser,
             title: diaryTitle,
             content: diaryContent,
           },
