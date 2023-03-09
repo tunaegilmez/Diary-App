@@ -1,4 +1,4 @@
-<div class="card bg-yellow-50">
+<div class="card relative bg-yellow-50">
   <slot />
 </div>
 
