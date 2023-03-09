@@ -26,6 +26,8 @@
     <button
       class="self-end p-2 bg-gray-400 rounded-md"
       on:click={() => {
+        let tarih = new Date();
+
         if (diaryTitle === undefined || diaryContent === undefined) {
           alert("Fill in the required fields");
           return;
@@ -37,7 +39,7 @@
             owner: $activeUser,
             title: diaryTitle,
             content: diaryContent,
-            createdAt: new Date().getFullYear,
+            createdAt: `${tarih.getDate()}.${tarih.getMonth()}.${tarih.getFullYear()}`,
           },
           ...$diaries,
         ]);

@@ -20,7 +20,7 @@
           <div>
             <div class="flex justify-between mb-3">
               <h1 class="text-center text-2xl text-red-800">{diary.title}</h1>
-              <li class="first-line:text-gray-400">01.01.2023</li>
+              <li class="first-line:text-gray-400">{diary.createdAt}</li>
             </div>
             <div>
               <p

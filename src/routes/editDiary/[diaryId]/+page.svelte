@@ -17,7 +17,6 @@
 </script>
 
 <main>
-  {JSON.stringify($diaries)}
   <h1>Edit {diary?.title}</h1>
   {#if diary}
     <div class="flex flex-col gap-y-4">
@@ -38,6 +37,8 @@
       <button
         class="self-end p-2 bg-gray-400 rounded-md"
         on:click={() => {
+          let tarih = new Date();
+
           diaries.update(currentDiary => {
             return currentDiary.map(currentDiary => {
               if (currentDiary?.id == diaryIdParam) {
@@ -45,6 +46,7 @@
                   ...currentDiary,
                   title: diary?.title,
                   content: diary?.content,
+                  createdAt: `${tarih.getDate()}.${tarih.getMonth()}.${tarih.getFullYear()}`,
                 };
               }
               return currentDiary;
