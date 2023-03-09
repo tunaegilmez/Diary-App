@@ -37,6 +37,7 @@
             owner: $activeUser,
             title: diaryTitle,
             content: diaryContent,
+            createdAt: new Date().getFullYear,
           },
           ...$diaries,
         ]);

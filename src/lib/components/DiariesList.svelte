@@ -2,6 +2,12 @@
   import Card from "../shared/Card.svelte";
 
   import { diaries, activeUser } from "../services/store";
+
+  const deleteDiary = id => {
+    diaries.update(currentDiary => {
+      return currentDiary.filter(diary => diary?.id !== id);
+    });
+  };
 </script>
 
 <div
@@ -24,10 +30,15 @@
               </p>
             </div>
             <div class="absolute inset-x-0 bottom-0 flex justify-between p-5">
+              <a href="/editDiary/{diary?.id}">
+                <i
+                  class="bi bi-pencil-square text-2xl text-emerald-700 cursor-pointer border-b-2 border-emerald-500 border-opacity-0 hover:border-opacity-100 hover:text-emerald-500"
+                />
+              </a>
+              <!-- svelte-ignore missing-declaration -->
+              <!-- svelte-ignore a11y-click-events-have-key-events -->
               <i
-                class="bi bi-pencil-square text-2xl text-emerald-700 cursor-pointer border-b-2 border-emerald-500 border-opacity-0 hover:border-opacity-100 hover:text-emerald-500"
-              />
-              <i
+                on:click={() => deleteDiary(diary?.id)}
                 class="bi bi-trash text-2xl text-red-700 cursor-pointer border-b-2 border-red-500 border-opacity-0 hover:border-opacity-100 hover:text-red-500"
               />
             </div>
