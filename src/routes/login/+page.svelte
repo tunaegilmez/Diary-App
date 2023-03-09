@@ -14,16 +14,18 @@
     class="login-card flex flex-col gap-y-4 rounded-xl border border-slate-500"
   >
     <div>
-      <h3 class="mt-[50px] ml-12 mb-5 text-xl flex justify-start">User Name</h3>
+      <h3 class="mt-[50px] ml-14 mb-5 text-xl flex justify-start opacity-60">
+        User Name
+      </h3>
       <input
-        class="text-xl p-2 border rounded-md  border-slate-500 "
+        class="text-xl p-2 border rounded-md  border-slate-500"
         type="text"
         bind:value={userName}
         placeholder="User Name"
       />
     </div>
     <div>
-      <h3 class="mt-[50px] ml-12 mb-5 text-xl flex justify-start">
+      <h3 class="mt-[50px] ml-14 mb-5 text-xl flex justify-start opacity-60">
         User Password
       </h3>
       <input
