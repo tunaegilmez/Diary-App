@@ -1,9 +1,26 @@
 <script>
-  import { diaries, activeUser } from "../../lib/services/store";
+  import RestService from "../../lib/services/rest";
+  import { onMount } from "svelte";
+
   import { goto } from "$app/navigation";
 
-  let diaryTitle;
-  let diaryContent;
+  let title;
+  let description;
+
+  let addDiary;
+
+  onMount(() => {
+    addDiary = async () => {
+      let data = { title, description };
+      let response = await RestService.addDiary(data);
+      if (response["status"]) {
+        console.log("New Diary Successfull");
+        goto("/");
+      } else {
+        console.log("Add Diary Error");
+      }
+    };
+  });
 </script>
 
 <main>
@@ -13,40 +30,19 @@
       class="title w-full p-2 capitalize text-2xl border border-slate-500"
       type="text"
       placeholder="Diary title"
-      bind:value={diaryTitle}
+      bind:value={title}
     />
     <div>
       <textarea
         class="w-full min-h-[20rem] text-lg p-2 border border-slate-500"
         placeholder="Diary content..."
-        bind:value={diaryContent}
+        bind:value={description}
       />
     </div>
 
     <button
       class="self-end p-2 bg-gray-400 rounded-md"
-      on:click={() => {
-        let tarih = new Date();
-
-        if (diaryTitle === undefined || diaryContent === undefined) {
-          alert("Fill in the required fields");
-          return;
-        }
-
-        diaries.set([
-          {
-            id: new Date().getTime(),
-            owner: $activeUser,
-            title: diaryTitle,
-            content: diaryContent,
-            createdAt: `${tarih.getDate()}.${tarih.getMonth()}.${tarih.getFullYear()}`,
-          },
-          ...$diaries,
-        ]);
-        goto("/");
-        diaryTitle = undefined;
-        diaryContent = undefined;
-      }}>Save Diary</button
+      on:click={() => addDiary()}>Save Diary</button
     >
   </div>
 </main>

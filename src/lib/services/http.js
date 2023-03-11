@@ -2,6 +2,7 @@ const post = async (url, body) => {
   try {
     let response = await fetch(url, {
       method: "POST",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
     });
 
@@ -15,6 +16,7 @@ const postFormData = async (url, body) => {
   try {
     let response = await fetch(url, {
       method: "POST",
+      headers: { "content-type": "application/json" },
       body,
     });
 
@@ -28,6 +30,7 @@ const put = async (url, body) => {
   try {
     let response = await fetch(url, {
       method: "PUT",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
     });
 
@@ -41,6 +44,7 @@ const patch = async (url, body) => {
   try {
     let response = await fetch(url, {
       method: "PATCH",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
     });
 
