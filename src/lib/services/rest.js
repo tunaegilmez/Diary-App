@@ -17,12 +17,13 @@ const addDiary = data => {
 };
 
 const updateDiary = (diaryId, data) => {
-  return Http.put(`${ENV.API_URL}/diary/${diaryId}`, {
-    diary: data,
+  return Http.patch(`${ENV.API_URL}/diary/${diaryId}`, {
+    ...data,
   });
 };
 
 const getDiary = diaryId => {
+  console.log("get diary diaryId", diaryId);
   return Http.get(`${ENV.API_URL}/diary/${diaryId}`);
 };
 

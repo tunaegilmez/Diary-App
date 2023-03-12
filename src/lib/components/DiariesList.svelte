@@ -8,12 +8,12 @@
   let limit = 10;
   let skip = 0;
   let totalDataCount = 0;
-  const getSliders = async () => {
+  const getDiaries = async () => {
     let response = await RestService.getDiaries(limit, skip);
     diaries = response["diaries"];
     totalDataCount = response["count"];
   };
-  getSliders();
+  getDiaries();
 
   //Delete Diary
   const deleteDiary = async diaryId => {
@@ -47,7 +47,7 @@
             </p>
           </div>
           <div class="absolute inset-x-0 bottom-0 flex justify-between p-5">
-            <a href="/editDiary/{diary?.id}">
+            <a href="/editDiary/{diary._id}">
               <i
                 class="bi bi-pencil-square text-2xl text-emerald-700 cursor-pointer border-b-2 border-emerald-500 border-opacity-0 hover:border-opacity-100 hover:text-emerald-500"
               />
